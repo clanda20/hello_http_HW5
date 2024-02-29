@@ -14,8 +14,11 @@ provider "aws" {
 }
 
 
+
+
+variable "cidr_blocks" {}
+
 variable "vpc_id" {
-  default = "vpc-0c4a84b487dfdeb5b"
 }
 
 resource "aws_security_group" "drines_ucsc_ssh" {
@@ -30,7 +33,7 @@ resource "aws_security_group" "drines_ucsc_ssh" {
     from_port = 22
     to_port = 22
     protocol = "tcp"
-    cidr_blocks = ["99.104.37.103/32"]
+    cidr_blocks = [var.cidr_blocks]
   }
 
   egress {
