@@ -1,0 +1,10 @@
+[Unit]
+Description=Basic Flask Application
+After=network-online.target
+Wants=network-online.target systemd-networkd-wait-online.service
+
+[Service]
+ExecStart=flask --app /Users/chlanda/Documents/Developer/Classes_Docs/UCSC/DevOps/files/packer/X409.L5/app_files/dummy_serv.c run --host=0.0.0.0
+
+[Install]
+WantedBy=multi-user.target
